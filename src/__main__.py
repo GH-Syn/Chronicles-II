@@ -17,6 +17,8 @@ python file.py
 A folder level entry allows easier relative path grepping to `res`; removing the need for manual inserts into system path variables.
 """
 
+import sys
+import loguru
 import pygame
 
 from utils.io_handler import get_parser, set_logging_level
