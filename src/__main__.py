@@ -17,6 +17,7 @@ A folder level entry allows easier relative path grepping to `res`; removing the
 """
 
 import sys
+import loguru
 import pygame
 
 from utils.io_handler import get_parser, set_logging_level
@@ -32,8 +33,11 @@ parser.add_argument(
 def main():
     args = parser.parse_args()
 
-    if args.debug:
-        set_logging_level(level="DEBUG")
+    level = "INFO" if not args.debug else "DEBUG"
+    set_logging_level(level)
+
+    loguru.logger.info("TEST")
+    loguru.logger.debug("TEST")
 
     window = pygame.display.set_mode()
 
