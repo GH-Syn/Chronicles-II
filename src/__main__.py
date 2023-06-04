@@ -1,6 +1,7 @@
 """
-About
------
+author: Joshua Rose <joshuarose099@gmail.com>
+license: MIT
+
 `__main__.py` exists so the following command(s) can be run:
 
 ```bash
