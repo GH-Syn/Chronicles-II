@@ -16,6 +16,7 @@ logs/
 *.pyw
 *.pyz
 *.pyzw
+*.spec
 
 # Miscellaneous
 .DS_Store
