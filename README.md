@@ -1,5 +1,5 @@
 # Chronicles II
-> `Description` to be implemented
+[![CI](https://github.com/GH-Syn/Chronicles-II/actions/workflows/run_tests.yml/badge.svg?branch=main&event=push)](https://github.com/GH-Syn/Chronicles-II/actions/workflows/run_tests.yml)
 
 ### About
 Some random shit i know for a fact is not getting finished.
