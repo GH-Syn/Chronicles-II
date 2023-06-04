@@ -29,20 +29,15 @@ jobs:
           pip install -r requirements.txt
       - name: 🌻 Run Unit Tests
         run: |
-          python -m coverage run -m pytest --exitfirst --maxfail=2 --cov . test/
+          # Run initial test
+          python -m pytest --cov .
+          # Generate coverage using previous cov data
+          coverage run -m pytest --cov . test/
       - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: 👒 Report to Codecov
         run: |
-          curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
           curl -Os https://uploader.codecov.io/latest/linux/codecov
-          curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM
-          curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM.sig
-          gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
-          shasum -a 256 -c codecov.SHA256SUM
           chmod +x codecov
           ./codecov -t ${{ secrets.CODECOV_TOKEN }}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
