@@ -31,6 +31,8 @@ jobs:
         run: |
           python -m coverage run -m pytest --exitfirst --maxfail=2 --cov . test/
       - uses: codecov/codecov-action@v2
+      - with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: 👒 Report to Codecov
         run: |
           curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
@@ -49,5 +51,3 @@ jobs:
           ./codecov -t ${{ secrets.CODECOV_TOKEN }}
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
