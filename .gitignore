@@ -25,4 +25,8 @@ Thumbs.db
 # Configuration files
 *.json
 
+# Code coverage
+codecov
+*.SHA*
+*.sig
 Makefile
