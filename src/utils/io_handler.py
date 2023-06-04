@@ -8,6 +8,9 @@ import argparse
 from glob import glob
 import json
 import os
+import sys
+
+import loguru
 
 
 def get_parser():
@@ -41,3 +44,28 @@ def get_display_size_from_config(config='config.json'):
         return file_config['size']
 
     raise FileNotFoundError("Cannot locate configuration file.")
+
+def set_logging_level(level = "DEBUG"):
+    """
+    Replace and set the logging level.
+
+    Default logging level is debug.
+
+    :param level: Logging level - default is debug
+    :raises ValueError: If `level` is not valid
+    """
+
+    levels = [
+            "DEBUG",
+            "NOSET",
+            "INFO",
+            "CRITICAL",
+            "ERROR",
+            "WARNING",
+            ]
+    if level not in levels:
+        raise ValueError(f"Level must be one of the following: {[i for i in levels]}]")
+
+    loguru.logger.remove()
+    loguru.logger.add(sys.stderr, level=level)
+
