@@ -29,7 +29,7 @@ jobs:
           pip install -r requirements.txt
       - name: 🌻 Run Unit Tests
         run: |
-          pytest --exitfirst --maxfail=2 --cov . test/
+          python -m coverage run -m pytest --exitfirst --maxfail=2 --cov . test/
       - uses: codecov/codecov-action@v2
       - name: 👒 Report to Codecov
         run: |
