@@ -24,3 +24,6 @@ Thumbs.db
 
 # Configuration files
 *.json
+
+# coverage
+.coverage
