@@ -36,9 +36,6 @@ def main():
     level = "INFO" if not args.debug else "DEBUG"
     set_logging_level(level)
 
-    loguru.logger.info("TEST")
-    loguru.logger.debug("TEST")
-
     window = pygame.display.set_mode()
 
 if __name__ == "__main__":
