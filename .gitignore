@@ -9,10 +9,6 @@ build/
 *.log
 *.swp
 
-# TMX and TSX files
-*.tmx
-*.tsx
-
 # Compiled files
 *.pyo
 *.pyd
